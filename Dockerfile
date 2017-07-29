@@ -1,4 +1,4 @@
-FROM rutgerhofste/condaJupyterDocker:latest
+FROM rutgerhofste/condajupyterdocker:latest
 MAINTAINER Rutger Hofste <rutgerhofste@gmail.com>
 
 RUN apt-get install -y dialog apt-utils libffi-dev libssl-dev 
