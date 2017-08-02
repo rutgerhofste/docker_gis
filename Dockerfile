@@ -66,3 +66,10 @@ RUN conda install --name python27 gdal -y
 RUN conda install --name python35 gdal -y
 
 RUN conda clean -yt
+
+# added later, Google cloud SDK
+# not working, probabaly 16.10 too new, replace in future: export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+RUN export CLOUD_SDK_REPO="cloud-sdk-yakkety"
+RUN echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+RUN apt-get update && apt-get install google-cloud-sdk -y
