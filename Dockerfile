@@ -71,3 +71,4 @@ RUN conda clean -yt
 RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz -P /opt/
 RUN tar xvf /opt/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz --directory /opt/
 # executables at: /opt/google-cloud-sdk/bin
+ENV PATH /opt/google-cloud-sdk/bin:$PATH
