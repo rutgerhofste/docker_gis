@@ -61,6 +61,9 @@ RUN apt-get install tmux -y
 
 # Finally because of the backward compatibility issues
 RUN apt-get install python-gdal -y
+# and the command line toold e.g. gdal_rasterize
+RUN apt-get install gdal-bin
+
 
 RUN conda install --name python27 gdal -y
 RUN conda install --name python35 gdal -y
@@ -72,3 +75,4 @@ RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud
 RUN tar xvf /opt/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz --directory /opt/
 # executables at: /opt/google-cloud-sdk/bin
 ENV PATH /opt/google-cloud-sdk/bin:$PATH
+# If this doesn't work, use: PATH=$PATH:/opt/google-cloud-sdk/bin in terminal
