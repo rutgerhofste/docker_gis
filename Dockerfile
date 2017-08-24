@@ -76,3 +76,6 @@ RUN tar xvf /opt/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz --directory /opt/
 # executables at: /opt/google-cloud-sdk/bin
 ENV PATH /opt/google-cloud-sdk/bin:$PATH
 # If this doesn't work, use: PATH=$PATH:/opt/google-cloud-sdk/bin in terminal
+
+RUN conda install --name python35 -c ioos folium -y
+
