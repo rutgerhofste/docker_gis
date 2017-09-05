@@ -44,6 +44,9 @@ RUN pip install earthengine-api
 RUN conda install --name python35 -c conda-forge geopandas -y
 RUN conda install --name python36 -c conda-forge geopandas -y
 
+RUN conda install --name python35 -c conda-forge rasterio -y
+
+# install packages from other channels
 RUN conda install --name python36arc -c esri arcgis -y
 RUN conda install -c esri arcgis -y
 RUN jupyter nbextension enable arcgis --py --sys-prefix
@@ -78,4 +81,5 @@ ENV PATH /opt/google-cloud-sdk/bin:$PATH
 # If this doesn't work, use: PATH=$PATH:/opt/google-cloud-sdk/bin in terminal
 
 RUN conda install --name python35 -c ioos folium -y
+RUN conda install --name python27 -c conda-forge ipyleaflet 
 
