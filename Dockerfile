@@ -1,7 +1,12 @@
 FROM rutgerhofste/condajupyterdocker:latest
 MAINTAINER Rutger Hofste <rutgerhofste@gmail.com>
 
-RUN apt-get install -y dialog apt-utils libffi-dev libssl-dev 
+RUN apt-get update && \
+	apt-get -y install \
+	dialog \
+	apt-utils \
+	libffi-dev \
+	libssl-dev  
 
 # Root environment /Users/rutgerhofste/GitHub/gisDocker/Dockerfile
 
