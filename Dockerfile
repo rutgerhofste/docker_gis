@@ -1,7 +1,12 @@
 FROM rutgerhofste/condajupyterdocker:ubuntu16.04
 MAINTAINER Rutger Hofste <rutgerhofste@gmail.com>
 
-RUN apt-get install -y dialog apt-utils libffi-dev libssl-dev 
+RUN apt-get update && \
+	apt-get -y install \
+	dialog \
+	apt-utils \
+	libffi-dev \
+	libssl-dev  
 
 # Root environment /Users/rutgerhofste/GitHub/gisDocker/Dockerfile
 
@@ -84,3 +89,4 @@ ENV PATH /opt/google-cloud-sdk/bin:$PATH
 
 RUN conda install --name python35 -c ioos folium -y
 RUN conda install --name python27 -c conda-forge ipyleaflet 
+
