@@ -3,3 +3,4 @@ pandas
 cryptography
 netcdf4
 s3fs
+geoalchemy2
