@@ -59,6 +59,10 @@ RUN conda install --name python36arc -c esri arcgis -y
 RUN conda install -c esri arcgis -y
 RUN jupyter nbextension enable arcgis --py --sys-prefix
 
+RUN conda install --name python27 -c scitools shapely -y
+
+
+
 # Reinstall core jupyter and conda extension. better be safe than sorry 
 RUN conda install jupyter -y
 RUN conda install nb_conda -y
