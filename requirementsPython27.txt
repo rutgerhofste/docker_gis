@@ -3,3 +3,4 @@ cryptography
 netcdf4
 boto3
 sqlalchemy
+psycopg2
