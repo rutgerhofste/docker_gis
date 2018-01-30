@@ -89,3 +89,7 @@ ENV PATH /opt/google-cloud-sdk/bin:$PATH
 RUN conda install --name python35 -c ioos folium -y
 RUN conda install --name python27 -c conda-forge ipyleaflet 
 
+# added later, added jupyterlab
+RUN conda install -c conda-forge jupyterlab -y
+
+
