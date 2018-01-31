@@ -1,4 +1,4 @@
-FROM rutgerhofste/condajupyterdocker:ubuntu16.04
+FROM rutgerhofste/condajupyterdocker:latest
 MAINTAINER Rutger Hofste <rutgerhofste@gmail.com>
 
 RUN apt-get update && \
