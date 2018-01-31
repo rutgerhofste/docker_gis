@@ -50,9 +50,8 @@ RUN conda install --name python27 -c conda-forge retrying -y
 RUN conda install --name python27 -c conda-forge geoalchemy2 -y
 
 RUN conda install --name python35 -c conda-forge geopandas -y
-RUN conda install --name python36 -c conda-forge geopandas -y
-
 RUN conda install --name python35 -c conda-forge rasterio -y
+RUN conda install --name python35 -c conda-forge geoalchemy2 
 
 # install packages from other channels
 RUN conda install --name python36arc -c esri arcgis -y
@@ -94,4 +93,8 @@ ENV PATH /opt/google-cloud-sdk/bin:$PATH
 
 RUN conda install --name python35 -c ioos folium -y
 RUN conda install --name python27 -c conda-forge ipyleaflet 
+
+# added later, added jupyterlab
+RUN conda install -c conda-forge jupyterlab -y
+
 
