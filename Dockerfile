@@ -79,7 +79,7 @@ RUN apt-get install python-gdal -y
 RUN apt-get install gdal-bin
 
 
-RUN conda install --name python27 gdal -y
+# RUN conda install --name python27 gdal -y
 RUN conda install --name python35 gdal -y
 
 RUN conda clean -yt
