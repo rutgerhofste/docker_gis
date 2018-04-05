@@ -14,7 +14,10 @@ RUN conda install -c conda-forge awscli
 
 # Create python virtualenv in Conda
 RUN conda create -n python27 python=2.7 jupyter -y
-RUN conda create -n python35 python=3.5 jupyter -y
+
+# Conda Channel 
+RUN conda install --name python27 --file requirementsPython27.txt
+
 
 COPY test_python27.py /
 RUN [ "/opt/anaconda3/envs/python27/bin/python", "./test_python27.py" ]
