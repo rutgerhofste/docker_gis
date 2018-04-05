@@ -1,16 +1,15 @@
 FROM rutgerhofste/condajupyterdocker:latest
 MAINTAINER Rutger Hofste <rutgerhofste@gmail.com>
 
+# Linux 
+# Root environment /Users/rutgerhofste/GitHub/gisDocker/Dockerfile
+
 RUN apt-get update && \
 	apt-get -y install \
 	dialog \
 	apt-utils \
 	libffi-dev \
 	libssl-dev  
-
-# Root environment /Users/rutgerhofste/GitHub/gisDocker/Dockerfile
-
-RUN conda install -c conda-forge awscli
 
 # Create python virtualenv in Conda
 RUN conda create -n python27 python=2.7 jupyter -y
@@ -24,19 +23,35 @@ RUN /opt/anaconda3/envs/python35/bin/python -m ipykernel install --name python35
 RUN /opt/anaconda3/envs/python36/bin/python -m ipykernel install --name python36 --display-name "Python 36"
 RUN /opt/anaconda3/envs/python36arc/bin/python -m ipykernel install --name python36arc --display-name "Python 36 Arc"
 
-# install regular packages (main conda channel)
-ADD requirementsPython27.txt .
-ADD requirementsPython35.txt .
-ADD requirementsPython36.txt .
-ADD requirementsPython36arc.txt .
+# Main Conda Channel
+COPY requirementsPython27.txt .
+COPY requirementsPython35.txt .
+COPY requirementsPython36.txt .
+COPY requirementsPython36arc.txt .
 
 RUN conda install --name python27 --file requirementsPython27.txt
 RUN conda install --name python35 --file requirementsPython35.txt
 RUN conda install --name python36 --file requirementsPython36.txt
 RUN conda install --name python36arc --file requirementsPython36arc.txt
 
+# Conda Forge Channels
+RUN conda install -c conda-forge awscli
+RUN conda install --name python27 -c conda-forge retrying -y
+RUN conda install --name python27 -c conda-forge geoalchemy2 -y
+RUN conda install --name python35 -c conda-forge geopandas -y
+RUN conda install --name python35 -c conda-forge rasterio -y
+RUN conda install --name python35 -c conda-forge geoalchemy2 
+RUN conda install --name python27 -c conda-forge gdal=2.2.4 -y
+RUN conda install --name python35 -c conda-forge gdal=2.2.4 -y
 
-# use source so the cli will be available when you activate the python27 environment
+# Conda Custom Channels
+RUN conda install --name python36arc -c esri arcgis -y
+RUN conda install -c esri arcgis -y
+RUN conda install --name python27 -c scitools shapely -y
+
+# Command line tools
+
+# Use source so the cli will be available when you activate the python27 environment
 RUN [ "/bin/bash", "-c", "source activate python27 && pip install google-api-python-client" ] 
 RUN [ "/bin/bash", "-c", "source activate python27 && pip install earthengine-api" ]
 
@@ -45,24 +60,8 @@ RUN pip install google-api-python-client
 RUN pip install earthengine-api
 
 
-# install packages from conda forge channel 
-RUN conda install --name python27 -c conda-forge retrying -y
-RUN conda install --name python27 -c conda-forge geoalchemy2 -y
-
-RUN conda install --name python35 -c conda-forge geopandas -y
-RUN conda install --name python35 -c conda-forge rasterio -y
-RUN conda install --name python35 -c conda-forge geoalchemy2 
-
-# install packages from other channels
-RUN conda install --name python36arc -c esri arcgis -y
-RUN conda install -c esri arcgis -y
+# Reinstall core jupyter and conda extension. better be safe than sorry
 RUN jupyter nbextension enable arcgis --py --sys-prefix
-
-RUN conda install --name python27 -c scitools shapely -y
-
-
-
-# Reinstall core jupyter and conda extension. better be safe than sorry 
 RUN conda install jupyter -y
 RUN conda install nb_conda -y
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -74,13 +73,9 @@ RUN locale-gen en_US.UTF-8
 RUN apt-get install tmux -y
 
 # Finally because of the backward compatibility issues
-RUN apt-get install python-gdal -y
+# RUN apt-get install python-gdal -y
 # and the command line toold e.g. gdal_rasterize
-RUN apt-get install gdal-bin
-
-
-RUN conda install --name python27 gdal -y
-RUN conda install --name python35 gdal -y
+# RUN apt-get install gdal-bin
 
 RUN conda clean -yt
 
@@ -91,10 +86,16 @@ RUN tar xvf /opt/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz --directory /opt/
 ENV PATH /opt/google-cloud-sdk/bin:$PATH
 # If this doesn't work, use: PATH=$PATH:/opt/google-cloud-sdk/bin in terminal
 
+# Custom Channels
 RUN conda install --name python35 -c ioos folium -y
 RUN conda install --name python27 -c conda-forge ipyleaflet 
 
-# added later, added jupyterlab
-RUN conda install -c conda-forge jupyterlab -y
+# Tests
+COPY tests/test_python27.py /
+RUN [ "/opt/anaconda3/envs/python27/bin/python", "./test_python27.py" ]
+
+
+
+
 
 

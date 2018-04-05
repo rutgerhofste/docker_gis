@@ -15,12 +15,13 @@ RUN conda install -c conda-forge awscli
 # Create python virtualenv in Conda
 RUN conda create -n python27 python=2.7 jupyter -y
 
+
 # Conda Channel 
 COPY requirements/requirementsPython27.txt .
 RUN conda install --name python27 --file requirementsPython27.txt
 
 # Conda Forge Channel
-RUN conda install --name python27 -c conda-forge gdal=2.1.0 -y
+RUN conda install --name python27 -c conda-forge gdal=2.2.4 -y
 
 # Tests
 COPY tests/test_python27.py /
