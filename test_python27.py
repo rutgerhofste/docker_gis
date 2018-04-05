@@ -1,1 +1,3 @@
-print("this is a testing script")
+# This should fail:
+a = 1/0
+
