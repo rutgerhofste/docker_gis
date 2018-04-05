@@ -16,5 +16,5 @@ RUN conda install -c conda-forge awscli
 RUN conda create -n python27 python=2.7 jupyter -y
 RUN conda create -n python35 python=3.5 jupyter -y
 
-ADD test_python27.py /
-CMD [ "/opt/anaconda3/envs/python27/bin/python", "./test_python27.py" ]
+COPY test_python27.py /
+RUN [ "/opt/anaconda3/envs/python27/bin/python", "./test_python27.py" ]
