@@ -6,7 +6,7 @@ RUN conda config --add channels conda-forge
 RUN conda config --append channels esri
 
 # GDAL 1.1.x system intall
-RUN apt-get install python-gdal -y
+# RUN apt-get install python-gdal -y
 
 # GDAL 2.2.x for python
 RUN conda install --name python27 gdal -y
