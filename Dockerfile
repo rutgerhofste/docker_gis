@@ -1,4 +1,4 @@
-FROM rutgerhofste/default_conda_envs:local01
+FROM rutgerhofste/docker_python_envs:latest
 MAINTAINER Rutger Hofste <rutgerhofste@gmail.com>
 
 
