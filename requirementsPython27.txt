@@ -1,9 +1,2 @@
 pandas
 cryptography
-netcdf4
-boto3
-sqlalchemy
-psycopg2
-retrying
-geoalchemy2
-google-api-python-client

@@ -18,7 +18,7 @@ COPY requirementsPython35.txt .
 # COPY requirementsPython36arc.txt .
 
 RUN conda install --file requirementsPython.txt
-# RUN conda install --name python27 --file requirementsPython27.txt
+RUN conda install --name python27 --file requirementsPython27.txt
 RUN conda install --name python35 --file requirementsPython35.txt
 # RUN conda install --name python36 --file requirementsPython36.txt
 # RUN conda install --name python36arc --file requirementsPython36arc.txt
