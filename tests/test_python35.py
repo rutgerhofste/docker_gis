@@ -17,3 +17,9 @@ import geopandas as gpd
 print("geopandas check")
 import geoalchemy2
 print("geoalchemy2 check")
+import folium
+print("folium check")
+
+
+import earthengine
+print("earthengine check")

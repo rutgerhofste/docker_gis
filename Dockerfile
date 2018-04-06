@@ -25,7 +25,8 @@ RUN conda install --name python35 --file requirementsPython35.txt
 # ENV PATH /opt/google-cloud-sdk/bin:$PATH
 # If this doesn't work, use: PATH=$PATH:/opt/google-cloud-sdk/bin in terminal
 
-# RUN [ "/bin/bash", "-c", "source activate python27 && pip install earthengine-api" ]
+RUN [ "/bin/bash", "-c", "source activate python27 && pip install earthengine-api" ]
+RUN [ "/bin/bash", "-c", "source activate python35 && pip install earthengine-api" ]
 
 # make command line tool accessible to root python (note that the path for cli will be part of root env)
 # RUN pip install google-api-python-client
@@ -54,9 +55,6 @@ RUN conda install --name python35 --file requirementsPython35.txt
 
 # RUN conda install --name python35 -c ioos folium -y
 # RUN conda install --name python27 -c conda-forge ipyleaflet 
-
-# added later, added jupyterlab
-# RUN conda install -c conda-forge jupyterlab -y
 
 # !!! WARNING There is an incompatibility of netCDF4 and GDAL. Do not install netCDF4 after GDAL!!!
 

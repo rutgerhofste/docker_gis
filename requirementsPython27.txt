@@ -3,3 +3,4 @@ cryptography
 retrying
 netcdf4
 geopandas
+geoalchemy2
