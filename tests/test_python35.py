@@ -15,3 +15,5 @@ import netCDF4
 print("netCDF4 check")
 import geopandas as gpd
 print("geopandas check")
+import geoalchemy2
+print("geoalchemy2 check")
