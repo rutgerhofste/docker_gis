@@ -1,4 +1,5 @@
 pandas
 cryptography
 retrying
+netcdf4
 

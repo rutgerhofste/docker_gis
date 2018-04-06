@@ -5,11 +5,6 @@ MAINTAINER Rutger Hofste <rutgerhofste@gmail.com>
 RUN conda config --add channels conda-forge
 RUN conda config --append channels esri
 
-# GDAL 1.1.x system intall
-
-# GDAL 2.2.x for python
-RUN conda install --name python27 gdal -y
-RUN conda install --name python35 gdal -y
 
 COPY requirementsPython.txt .
 COPY requirementsPython27.txt .
@@ -62,6 +57,12 @@ RUN conda install --name python35 --file requirementsPython35.txt
 
 # added later, added jupyterlab
 # RUN conda install -c conda-forge jupyterlab -y
+
+# GDAL 1.1.x system intall
+
+# GDAL 2.2.x for python
+RUN conda install --name python27 gdal -y
+RUN conda install --name python35 gdal -y
 
 # Tests
 COPY tests/test_python27.py /

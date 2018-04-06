@@ -7,4 +7,5 @@ from osgeo import gdal
 import pandas as pd
 import cryptography
 import retrying
+import netcdf4
 
