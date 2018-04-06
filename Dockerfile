@@ -11,9 +11,9 @@ RUN conda config --append channels esri
 RUN conda install --name python27 gdal -y
 RUN conda install --name python35 gdal -y
 
-# install regular packages (main conda channel)
-ADD requirementsPython27.txt .
-ADD requirementsPython35.txt .
+COPY requirementsPython.txt .
+COPY requirementsPython27.txt .
+COPY requirementsPython35.txt .
 # ADD requirementsPython36.txt .
 # ADD requirementsPython36arc.txt .
 
@@ -22,7 +22,6 @@ RUN conda install --name python27 --file requirementsPython27.txt
 RUN conda install --name python35 --file requirementsPython35.txt
 # RUN conda install --name python36 --file requirementsPython36.txt
 # RUN conda install --name python36arc --file requirementsPython36arc.txt
-
 
 # Cloud Stuff
 RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz -P /opt/
@@ -63,8 +62,6 @@ ENV PATH /opt/google-cloud-sdk/bin:$PATH
 
 # added later, added jupyterlab
 # RUN conda install -c conda-forge jupyterlab -y
-
-
 
 # Tests
 COPY tests/test_python27.py /
