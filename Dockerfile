@@ -6,7 +6,6 @@ RUN conda config --add channels conda-forge
 RUN conda config --append channels esri
 
 # GDAL 1.1.x system intall
-# RUN apt-get install python-gdal -y
 
 # GDAL 2.2.x for python
 RUN conda install --name python27 gdal -y
@@ -15,12 +14,12 @@ RUN conda install --name python35 gdal -y
 COPY requirementsPython.txt .
 COPY requirementsPython27.txt .
 COPY requirementsPython35.txt .
-# ADD requirementsPython36.txt .
-# ADD requirementsPython36arc.txt .
+# COPY requirementsPython36.txt .
+# COPY requirementsPython36arc.txt .
 
-# RUN conda install --file requirementsPython.txt
+RUN conda install --file requirementsPython.txt
 # RUN conda install --name python27 --file requirementsPython27.txt
-# RUN conda install --name python35 --file requirementsPython35.txt
+RUN conda install --name python35 --file requirementsPython35.txt
 # RUN conda install --name python36 --file requirementsPython36.txt
 # RUN conda install --name python36arc --file requirementsPython36arc.txt
 
