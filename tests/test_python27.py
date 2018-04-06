@@ -3,4 +3,6 @@ Author: Rutger Hofste
 Date: 20180405
 """
 
+
 from osgeo import gdal
+print("osgeo check")

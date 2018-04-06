@@ -60,13 +60,13 @@ RUN conda install --name python35 --file requirementsPython35.txt
 
 # GDAL 1.1.x system intall
 
-# GDAL 2.2.x for python
+# GDAL 2.2.4 for python
 RUN conda install --name python27 gdal -y
 RUN conda install --name python35 gdal -y
 
 # Tests
 COPY tests/test_python27.py /
-RUN [ "/opt/anaconda3/envs/python27/bin/python", "./test_python27.py" ]
+RUN [ "/opt/anaconda3/envs/python27/bin/python -u", "./test_python27.py" ]
 
 COPY tests/test_python35.py /
-RUN [ "/opt/anaconda3/envs/python35/bin/python", "./test_python35.py" ]
+RUN [ "/opt/anaconda3/envs/python35/bin/python -u", "./test_python35.py" ]
