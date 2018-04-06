@@ -66,7 +66,7 @@ RUN conda install --name python35 gdal -y
 
 # Tests
 COPY tests/test_python27.py /
-RUN [ "/opt/anaconda3/envs/python27/bin/python -u", "./test_python27.py" ]
+RUN [ "/opt/anaconda3/envs/python27/bin/python", "-u", "./test_python27.py" ]
 
 COPY tests/test_python35.py /
-RUN [ "/opt/anaconda3/envs/python35/bin/python -u", "./test_python35.py" ]
+RUN [ "/opt/anaconda3/envs/python35/bin/python", "-u", "./test_python35.py" ]
