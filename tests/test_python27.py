@@ -6,3 +6,5 @@ Date: 20180405
 
 from osgeo import gdal
 print("osgeo check")
+import netcdf4
+print("netcdf4 check")
