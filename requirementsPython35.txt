@@ -2,4 +2,5 @@ pandas
 cryptography
 retrying
 netcdf4
+geopandas
 

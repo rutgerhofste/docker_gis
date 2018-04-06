@@ -13,3 +13,5 @@ import retrying
 print("retrying check")
 import netCDF4
 print("netCDF4 check")
+import geopandas as gpd
+print("geopandas check")
