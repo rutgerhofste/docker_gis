@@ -22,6 +22,11 @@ Wishlist:
 * sub processing 
 * pickle 
 
+TODO:  
+* create stable tag and develop tag
+* add more packages
+
+
 Current overview of environments
 
 | Name in Jupyter  | Name in conda   | Python version | Eeath Engine | GDAL | GeoPandas | ArcGIS API |

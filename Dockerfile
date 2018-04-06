@@ -58,6 +58,8 @@ RUN conda install --name python35 --file requirementsPython35.txt
 # added later, added jupyterlab
 # RUN conda install -c conda-forge jupyterlab -y
 
+# !!! WARNING There is an incompatibility of netCDF4 and GDAL. Do not install netCDF4 after GDAL!!!
+
 # GDAL 1.1.x system intall
 
 # GDAL 2.2.4 for python
