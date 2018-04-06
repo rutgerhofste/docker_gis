@@ -20,14 +20,23 @@ This is work in progress. In the next couple of weeks I will start working with 
 # when not to use this image?  
 This is work in progress. I did not hardcode any version numbers yet so things might break when packages get updated. Also, this is a heavyweight solution. You can probably get far more efficient images online. 
 
-Wishlist:
+# Wishlist:
 * parallel processing 
 * sub processing 
 * pickle 
 
+# Building From Source
+`docker build rutgerhofste/gisdocker:localxx .`
+`docker push rutgerhofste/gisdocker:localxx`
+
+if stable, rename using  
+`docker tag rutgerhofste/gisdocker:localxx rutgerhofste/gisdocker:stable`
+
 TODO:  
 * create stable tag and develop tag
 * add more packages
+
+
 
 
 Current overview of environments
