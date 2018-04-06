@@ -20,6 +20,5 @@ print("geoalchemy2 check")
 import folium
 print("folium check")
 
-
 import earthengine
 print("earthengine check")
