@@ -13,7 +13,7 @@ All images are hosted on [docker hub](https://hub.docker.com/u/rutgerhofste/)
 # Getting Started
 
 1. Get docker up and running on your cloud instance.  
-2. `docker run --name gisdocker -it -p 8888:8888 rutgerhofste/gisdocker:stable bash`  
+2. `docker run --name docker_gis -it -p 8888:8888 rutgerhofste/docker_gis:stable bash`  
 3. Launch the Jupyter Notebook Server. Instructions can be found [here](https://github.com/rutgerhofste/Aqueduct30Docker)  
 
 See the section: Cloud Based solution.  
