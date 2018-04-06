@@ -5,7 +5,7 @@ MAINTAINER Rutger Hofste <rutgerhofste@gmail.com>
 RUN conda config --add channels conda-forge
 RUN conda config --append channels esri
 
-# GDAL
+# GDAL 1.1.x system intall
 RUN apt-get install python-gdal -y
 
 # GDAL 2.2.x for python
@@ -18,20 +18,20 @@ COPY requirementsPython35.txt .
 # ADD requirementsPython36.txt .
 # ADD requirementsPython36arc.txt .
 
-RUN conda install --file requirementsPython.txt
-RUN conda install --name python27 --file requirementsPython27.txt
-RUN conda install --name python35 --file requirementsPython35.txt
+# RUN conda install --file requirementsPython.txt
+# RUN conda install --name python27 --file requirementsPython27.txt
+# RUN conda install --name python35 --file requirementsPython35.txt
 # RUN conda install --name python36 --file requirementsPython36.txt
 # RUN conda install --name python36arc --file requirementsPython36arc.txt
 
 # Cloud Stuff
-RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz -P /opt/
-RUN tar xvf /opt/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz --directory /opt/
+# RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz -P /opt/
+# RUN tar xvf /opt/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz --directory /opt/
 # executables at: /opt/google-cloud-sdk/bin
-ENV PATH /opt/google-cloud-sdk/bin:$PATH
+# ENV PATH /opt/google-cloud-sdk/bin:$PATH
 # If this doesn't work, use: PATH=$PATH:/opt/google-cloud-sdk/bin in terminal
 
- RUN [ "/bin/bash", "-c", "source activate python27 && pip install earthengine-api" ]
+# RUN [ "/bin/bash", "-c", "source activate python27 && pip install earthengine-api" ]
 
 # make command line tool accessible to root python (note that the path for cli will be part of root env)
 # RUN pip install google-api-python-client
