@@ -4,6 +4,9 @@ separate repo to build a docker image that has the conda 3 and jupyter environme
 
 # how to run a jupyter notebook with this image?
 
+run this container: `docker run --name gisdocker -it -p 8888:8888 rutgerhofste/gisdocker:stable bash`  
+
+
 while in active development, this image will not launch a Jupyter notebook server by itself. You have to manually trigger this behaviour by launching a container from this image and run the jupyter command there. Instructions can be found [here](https://github.com/rutgerhofste/Aqueduct30Docker)  
 
 See the section: Cloud Based solution.  
@@ -17,10 +20,24 @@ This is work in progress. In the next couple of weeks I will start working with 
 # when not to use this image?  
 This is work in progress. I did not hardcode any version numbers yet so things might break when packages get updated. Also, this is a heavyweight solution. You can probably get far more efficient images online. 
 
-Wishlist:
+# Wishlist:
 * parallel processing 
 * sub processing 
 * pickle 
+
+# Building From Source
+`docker build rutgerhofste/gisdocker:localxx .`
+`docker push rutgerhofste/gisdocker:localxx`
+
+if stable, rename using  
+`docker tag rutgerhofste/gisdocker:localxx rutgerhofste/gisdocker:stable`
+
+TODO:  
+* create stable tag and develop tag
+* add more packages
+
+
+
 
 Current overview of environments
 

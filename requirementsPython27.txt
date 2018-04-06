@@ -1,6 +1,7 @@
 pandas
 cryptography
+retrying
 netcdf4
-boto3
-sqlalchemy
-psycopg2
+geopandas
+geoalchemy2
+folium

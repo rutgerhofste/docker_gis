@@ -1,5 +1,8 @@
-boto3
 pandas
 cryptography
+retrying
 netcdf4
-s3fs
+geopandas
+geoalchemy2
+folium
+
