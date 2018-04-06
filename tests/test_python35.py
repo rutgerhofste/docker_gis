@@ -11,6 +11,5 @@ import cryptography
 print("cryptography check")
 import retrying
 print("retrying check")
-#import netcdf4
-#print("netcdf4 check")
-
+import netCDF4
+print("netCDF4 check")
