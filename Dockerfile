@@ -56,3 +56,8 @@ RUN [ "/opt/anaconda3/envs/python27/bin/python", "-u", "./test_python27.py" ]
 
 COPY tests/test_python35.py /
 RUN [ "/opt/anaconda3/envs/python35/bin/python", "-u", "./test_python35.py" ]
+
+
+# Todo
+
+# Since there is a conflict of netcdf4 and gdal, is it necessary to install netCDF4 separately ?

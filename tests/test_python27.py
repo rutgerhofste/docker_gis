@@ -19,5 +19,5 @@ print("geopandas check")
 import geoalchemy2
 print("geoalchemy2 check")
 
-import earthengine
+import ee
 print("earthengine check")
