@@ -1,13 +1,20 @@
-# gisDocker
+# docker_gis
 
-separate repo to build a docker image that has the conda 3 and jupyter environments installed and the basic GIS packages some basic volume / port stuff
+heavy weigth docker image for python and command line based geospatial analysis. The docker image is tailored to cloud usage on Amazon EC2 instances, Google Compute engines etc.  
 
-# how to run a jupyter notebook with this image?
+The docker image is stacked to minimize build time and dependencies. The full stack contains:
 
-run this container: `docker run --name gisdocker -it -p 8888:8888 rutgerhofste/gisdocker:stable bash`  
+1. [docker_gis](https://github.com/rutgerhofste/docker_gis)
+1. [docker_python_envs](https://github.com/rutgerhofste/docker_python_envs)
+1. [docker_conda_jupyter](https://github.com/rutgerhofste/docker_conda_jupyter)
 
+All images are hosted on [docker hub](https://hub.docker.com/u/rutgerhofste/)
 
-while in active development, this image will not launch a Jupyter notebook server by itself. You have to manually trigger this behaviour by launching a container from this image and run the jupyter command there. Instructions can be found [here](https://github.com/rutgerhofste/Aqueduct30Docker)  
+# Getting Started
+
+1. Get docker up and running on your cloud instance.  
+2. `docker run --name gisdocker -it -p 8888:8888 rutgerhofste/gisdocker:stable bash`  
+3. Launch the Jupyter Notebook Server. Instructions can be found [here](https://github.com/rutgerhofste/Aqueduct30Docker)  
 
 See the section: Cloud Based solution.  
 
@@ -26,8 +33,8 @@ This is work in progress. I did not hardcode any version numbers yet so things m
 * pickle 
 
 # Building From Source
-`docker build rutgerhofste/gisdocker:localxx .`
-`docker push rutgerhofste/gisdocker:localxx`
+`docker build rutgerhofste/gisdocker:localxx .`  
+`docker push rutgerhofste/gisdocker:localxx`  
 
 if stable, rename using  
 `docker tag rutgerhofste/gisdocker:localxx rutgerhofste/gisdocker:stable`
