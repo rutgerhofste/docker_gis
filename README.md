@@ -1,4 +1,4 @@
-# docker_gis
+# Docker GIS
 
 heavy weigth docker image for python and command line based geospatial analysis. The docker image is tailored to cloud usage on Amazon EC2 instances, Google Compute engines etc.  
 
@@ -24,7 +24,7 @@ As you can see the image is quite large. This is the result of having a full con
 
 This is work in progress. In the next couple of weeks I will start working with the different python environments and install additional packages allong the way.  
 
-# when not to use this image?  
+# When not to use this image?  
 This is work in progress. I did not hardcode any version numbers yet so things might break when packages get updated. Also, this is a heavyweight solution. You can probably get far more efficient images online. 
 
 # Wishlist:
@@ -34,17 +34,12 @@ This is work in progress. I did not hardcode any version numbers yet so things m
 
 # Building From Source
 `docker build rutgerhofste/gisdocker:localxx .`  
+`docker tag rutgerhofste/gisdocker:localxx rutgerhofste/gisdocker:stable`  
 `docker push rutgerhofste/gisdocker:localxx`  
-
-if stable, rename using  
-`docker tag rutgerhofste/gisdocker:localxx rutgerhofste/gisdocker:stable`
 
 TODO:  
 * create stable tag and develop tag
 * add more packages
-
-
-
 
 Current overview of environments
 
@@ -55,10 +50,3 @@ Current overview of environments
 | Python 36 | python36      |   3.6 |0|0|0|0|
 | Python 36arc | python36arc |  3.6 |0 |0 |0| 1|
 | Python 3 | root   | 3.6 |0 |0 |0| 0|
-
-
-
-
-
-
-trigger
