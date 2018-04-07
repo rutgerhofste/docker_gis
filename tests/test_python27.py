@@ -18,6 +18,10 @@ import geopandas as gpd
 print("geopandas check")
 import geoalchemy2
 print("geoalchemy2 check")
+import planet
+print("planet check")
+
+
 
 import ee
 print("earthengine check")

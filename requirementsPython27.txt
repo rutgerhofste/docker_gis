@@ -5,3 +5,4 @@ netcdf4
 geopandas
 geoalchemy2
 folium
+planet

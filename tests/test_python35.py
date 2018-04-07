@@ -19,6 +19,8 @@ import geoalchemy2
 print("geoalchemy2 check")
 import folium
 print("folium check")
+import planet
+print("planet check")
 
 import ee
 print("earthengine check")
