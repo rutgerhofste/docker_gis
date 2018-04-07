@@ -1,6 +1,6 @@
 # Docker GIS
 
-heavy weigth docker image for python and command line based geospatial analysis. The docker image is tailored to cloud usage on Amazon EC2 instances, Google Compute engines etc.  
+heavy weight docker image for python and command line based geospatial analysis. The docker image is tailored to cloud usage on Amazon EC2 instances, Google Compute engines etc.  
 
 The docker image is stacked to minimize build time and dependencies. The full stack contains:
 
