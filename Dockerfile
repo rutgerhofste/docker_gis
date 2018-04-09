@@ -10,14 +10,14 @@ RUN conda config --append channels esri
 COPY requirementsPython.txt .
 COPY requirementsPython27.txt .
 COPY requirementsPython35.txt .
-# COPY requirementsPython36.txt .
-# COPY requirementsPython36arc.txt .
+COPY requirementsPython36.txt .
+COPY requirementsPython36arc.txt .
 
 RUN conda install --file requirementsPython.txt
 RUN conda install --name python27 --file requirementsPython27.txt
 RUN conda install --name python35 --file requirementsPython35.txt
-# RUN conda install --name python36 --file requirementsPython36.txt
-# RUN conda install --name python36arc --file requirementsPython36arc.txt
+RUN conda install --name python36 --file requirementsPython36.txt
+RUN conda install --name python36arc --file requirementsPython36arc.txt
 
 # Make command line tool accessible to root python (note that the path for cli will be part of root env)
 RUN pip install earthengine-api
@@ -61,3 +61,4 @@ RUN [ "/opt/anaconda3/envs/python35/bin/python", "-u", "./test_python35.py" ]
 # Todo
 
 # Since there is a conflict of netcdf4 and gdal, is it necessary to install netCDF4 separately ?
+# Posted question here: https://github.com/Unidata/netcdf4-python/issues/790#issuecomment-379318057
