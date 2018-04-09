@@ -33,13 +33,11 @@ ENV PATH /opt/google-cloud-sdk/bin:$PATH
 # Executables at: /opt/google-cloud-sdk/bin
 # If this doesn't work, use: PATH=$PATH:/opt/google-cloud-sdk/bin in terminal
 
-# RUN jupyter nbextension enable arcgis --py --sys-prefix
-
 # Reinstall core jupyter and conda extension. better be safe than sorry 
 # RUN conda install jupyter -y
 # RUN conda install nb_conda -y
 # RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
-
+# RUN jupyter nbextension enable arcgis --py --sys-prefix
 
 # ##########################  GDAL ############################################
 # !!! WARNING There is an incompatibility of netCDF4 and GDAL. Do not install netCDF4 after GDAL!!!
