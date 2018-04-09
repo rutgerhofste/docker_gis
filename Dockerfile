@@ -26,10 +26,16 @@ RUN [ "/bin/bash", "-c", "source activate python35 && pip install earthengine-ap
 
 
 # ##########################  Command Line ####################################
-# Google-cloud-sdk
-RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz -P /opt/
-RUN tar xvf /opt/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz --directory /opt/
-ENV PATH /opt/google-cloud-sdk/bin:$PATH
+# Google-cloud-sdk (https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu)
+RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
+    echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
+    apt-get update -y && apt-get install google-cloud-sdk -y
+
+
+# RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz -P /opt/
+# RUN tar xvf /opt/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz --directory /opt/
+# ENV PATH /opt/google-cloud-sdk/bin:$PATH
 # Executables at: /opt/google-cloud-sdk/bin
 # If this doesn't work, use: PATH=$PATH:/opt/google-cloud-sdk/bin in terminal
 
