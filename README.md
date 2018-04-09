@@ -47,6 +47,6 @@ Current overview of environments
 | ------------- |:-------------:| -----:|---:|---:|---:|---:|
 | Python 27    | python27 | 2.7.14 | 0.1.136 | 2.2.4 | 0.3.0 |  |
 | Python 35   | pyhton35      |  3.5.4 | 0.1.136 | 2.2.4 | 0.3.0 | |
-| Python 36 | python36      |   3.6 |0|0|0|0|
-| Python 36arc | python36arc |  3.6 |0 |0 |0| 1|
-| Python 3 | root   | 3.6 |0 |0 |0| 0|
+| Python 36 | python36      |   3.6.5 |  |  |  |  |
+| Python 36arc | python36arc |  3.6.5 |  |  |  |  |
+| Python 3 | root   | 3.6.1 |  |  |  |  |
