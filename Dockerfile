@@ -1,4 +1,4 @@
-FROM rutgerhofste/docker_python_envs:latest
+FROM rutgerhofste/docker_python_envs:stable
 MAINTAINER Rutger Hofste <rutgerhofste@gmail.com>
 
 
@@ -26,27 +26,21 @@ RUN [ "/bin/bash", "-c", "source activate python35 && pip install earthengine-ap
 
 
 # ##########################  Command Line ####################################
-# Google-cloud-sdk (https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu)
-RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
+# Google-cloud-sdk 
+# https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu
+RUN export CLOUD_SDK_REPO="cloud-sdk-xenial" && \
     echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
     apt-get update -y && apt-get install google-cloud-sdk -y
 
-
-# RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz -P /opt/
-# RUN tar xvf /opt/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz --directory /opt/
-# ENV PATH /opt/google-cloud-sdk/bin:$PATH
-# Executables at: /opt/google-cloud-sdk/bin
-# If this doesn't work, use: PATH=$PATH:/opt/google-cloud-sdk/bin in terminal
-
 # Reinstall core jupyter and conda extension. better be safe than sorry 
 # RUN conda install jupyter -y
 # RUN conda install nb_conda -y
-RUN jupyter nbextension enable arcgis --py --sys-prefix
+# RUN jupyter nbextension enable arcgis --py --sys-prefix
 
 # ##########################  GDAL ############################################
-# !!! WARNING There is an incompatibility of netCDF4 and GDAL. Do not install netCDF4 after GDAL!!!
 # GDAL 1.1.x system intall
+# not used in this image. See older commits for gdal-bin cli. 
 
 # GDAL 2.2.4 for python
 RUN conda install --name python27 gdal -y
