@@ -1,4 +1,4 @@
-FROM rutgerhofste/docker_python_envs:latest
+FROM rutgerhofste/docker_python_envs:stable
 MAINTAINER Rutger Hofste <rutgerhofste@gmail.com>
 
 
