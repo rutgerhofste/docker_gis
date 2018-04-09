@@ -54,6 +54,12 @@ RUN [ "/opt/anaconda3/envs/python27/bin/python", "-u", "./test_python27.py" ]
 COPY tests/test_python35.py /
 RUN [ "/opt/anaconda3/envs/python35/bin/python", "-u", "./test_python35.py" ]
 
+COPY tests/test_python36.py /
+RUN [ "/opt/anaconda3/envs/python36/bin/python", "-u", "./test_python36.py" ]
+
+COPY tests/test_python36arc.py /
+RUN [ "/opt/anaconda3/envs/python36arc/bin/python", "-u", "./test_python36arc.py" ]
+
 
 # Todo
 
